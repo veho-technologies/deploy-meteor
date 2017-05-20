@@ -11,6 +11,12 @@ Also, we assume that you have your Meteor settings stored inside your Meteor app
  (You might want to check out [git-crypt](https://github.com/AGWA/git-crypt) if you have sensitive
  information in your settings file.)
 
+## Installation
+
+```bash
+npm i -g @veho-tech/deploy-meteor
+```
+
 ## Usage
 
 Assuming you have the following setup:
