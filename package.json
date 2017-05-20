@@ -1,5 +1,5 @@
 {
-  "name": "@veho/deploy-meteor",
+  "name": "@veho-tech/deploy-meteor",
   "repository": "https://github.com/veho-technologies/deploy-meteor.git",
   "description": "small Node app for (re)configuring a Meteor deployment with pm2",
   "version": "1.0.0",
