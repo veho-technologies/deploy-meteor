@@ -1,26 +1,26 @@
 window.esdocSearchIndex = [
   [
-    "@veho/deploy-meteor/src/lib/ip.js~getip",
+    "@veho-tech/deploy-meteor/src/lib/ip.js~getip",
     "function/index.html#static-function-getIp",
-    "<span>getIp</span> <span class=\"search-result-import-path\">@veho/deploy-meteor/src/lib/ip.js</span>",
+    "<span>getIp</span> <span class=\"search-result-import-path\">@veho-tech/deploy-meteor/src/lib/ip.js</span>",
     "function"
   ],
   [
-    "@veho/deploy-meteor/src/lib/settings.js~getsettings",
+    "@veho-tech/deploy-meteor/src/lib/settings.js~getsettings",
     "function/index.html#static-function-getSettings",
-    "<span>getSettings</span> <span class=\"search-result-import-path\">@veho/deploy-meteor/src/lib/settings.js</span>",
+    "<span>getSettings</span> <span class=\"search-result-import-path\">@veho-tech/deploy-meteor/src/lib/settings.js</span>",
     "function"
   ],
   [
-    "@veho/deploy-meteor/src/options.js~options",
+    "@veho-tech/deploy-meteor/src/options.js~options",
     "variable/index.html#static-variable-options",
-    "<span>options</span> <span class=\"search-result-import-path\">@veho/deploy-meteor/src/options.js</span>",
+    "<span>options</span> <span class=\"search-result-import-path\">@veho-tech/deploy-meteor/src/options.js</span>",
     "variable"
   ],
   [
-    "@veho/deploy-meteor/src/lib/pm2.js~writepm2config",
+    "@veho-tech/deploy-meteor/src/lib/pm2.js~writepm2config",
     "function/index.html#static-function-writePm2Config",
-    "<span>writePm2Config</span> <span class=\"search-result-import-path\">@veho/deploy-meteor/src/lib/pm2.js</span>",
+    "<span>writePm2Config</span> <span class=\"search-result-import-path\">@veho-tech/deploy-meteor/src/lib/pm2.js</span>",
     "function"
   ],
   [
