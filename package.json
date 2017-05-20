@@ -1,6 +1,12 @@
 {
+  "name": "@veho/deploy-meteor",
+  "repository": "https://github.com/veho-technologies/deploy-meteor.git",
+  "description": "small Node app for (re)configuring a Meteor deployment with pm2",
+  "version": "1.0.0",
   "main": "dist/setup.js",
-  "private": true,
+  "bin": {
+    "deploy-meteor": "dist/setup.js"
+  },
   "scripts": {
     "build": "babel src -d dist",
     "postbuild": "git add dist",
@@ -46,5 +52,6 @@
   "dependencies": {
     "command-line-usage": "^4.0.0",
     "shelljs": "^0.7.7"
-  }
+  },
+  "license": "MIT"
 }

@@ -1,6 +1,11 @@
 {
+  "license": "MIT",
+  "name": "@veho/deploy-meteor",
+  "repository": "https://github.com/veho-technologies/deploy-meteor.git",
   "main": "dist/setup.js",
-  "private": true,
+  "bin": {
+    "deploy-meteor": "dist/setup.js"
+  },
   "scripts": {
     "build": "babel src -d dist",
     "postbuild": "git add dist",

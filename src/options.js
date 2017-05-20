@@ -41,7 +41,7 @@ if (!options.bundle || !options.config || !options.settings) {
     const sections = [
         {
             header: 'Usage',
-            content: 'node . [bold]{--config=}path/to/pm2-config.json ' +
+            content: 'deploy-meteor [bold]{--config=}path/to/pm2-config.json ' +
             '[bold]{--settings=}settings.json ' +
             '[italic]{[--bindInterface=tun0]} [italic]{[--bindIp=10.0.0.1]}' +
             '[italic]{[--bundle=]}path/to/bundle ',
