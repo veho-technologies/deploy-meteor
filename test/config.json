@@ -1,0 +1,14 @@
+{
+  "name": "backoffice-qm",
+  "cwd": "/home/qm/backoffice/bundle",
+  "script": "main.js",
+  "env": {
+    "BIND_IP": "10.0.0.20",
+    "PORT": 6000,
+    "HTTP_FORWARDED_COUNT": 1,
+    "MONGO_URL": "mongodb://db01:27017,db02:27017/veho_qm?replicaSet=veho",
+    "MONGO_OPLOG_URL": "mongodb://db01:27017,db02:27017/local?replicaSet=veho&authSource=veho_qm",
+    "ROOT_URL": "https://qm.admin.veho-technologies.com",
+    "METEOR_SETTINGS": ""
+  }
+}
