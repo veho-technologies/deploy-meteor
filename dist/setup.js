@@ -1,6 +1,8 @@
 'use strict';
 
-var _config = require('./config');
+var _ip = require('./lib/ip');
+
+var _ip2 = _interopRequireDefault(_ip);
 
 var _pm = require('./lib/pm2');
 
@@ -15,4 +17,5 @@ var _options = require('./options');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var settings = (0, _settings2.default)(_options.options.bundle, _options.options.settings);
-(0, _pm2.default)(_options.options.config, _options.options.bundle, settings, _config.vpnIp);
+
+(0, _pm2.default)(_options.options.config, _options.options.bundle, settings, (0, _ip2.default)(_options.options));

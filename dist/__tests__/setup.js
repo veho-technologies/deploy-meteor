@@ -1,20 +1,22 @@
 'use strict';
 
-var _path = require('path');
-
 var _fs = require('fs');
 
-var _config = require('../config');
+var _path = require('path');
+
+var _ip = require('../lib/ip');
+
+var _ip2 = _interopRequireDefault(_ip);
 
 var _options = require('../options');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-env jest */
 /* eslint-disable arrow-functions, func-names */
 
 jest.mock('../options');
-
-// config won't work outside the realm of the VPN
-jest.mock('../config');
+jest.mock('../lib/ip');
 
 describe('setup', function () {
     var currentConfig = void 0;
@@ -37,7 +39,7 @@ describe('setup', function () {
             cwd: _options.options.bundle,
             script: 'main.js',
             env: Object.assign({}, config.env, {
-                BIND_IP: _config.vpnIp,
+                BIND_IP: _ip.__IP,
                 METEOR_SETTINGS: JSON.stringify(settings)
             })
         });
@@ -47,5 +49,6 @@ describe('setup', function () {
         var actualConfig = JSON.parse((0, _fs.readFileSync)(_options.options.config).toString());
 
         expect(actualConfig).toEqual(expectedConfig);
+        expect(_ip2.default).toHaveBeenCalledWith(_options.options);
     });
 });

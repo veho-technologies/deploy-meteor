@@ -1,15 +1,13 @@
 /* eslint-env jest */
 /* eslint-disable arrow-functions, func-names */
 
-import { resolve } from 'path';
 import { readFileSync, writeFileSync } from 'fs';
-import { vpnIp } from '../config';
+import { resolve } from 'path';
+import getIp, { __IP } from '../lib/ip';
 import { options } from '../options';
 
 jest.mock('../options');
-
-// config won't work outside the realm of the VPN
-jest.mock('../config');
+jest.mock('../lib/ip');
 
 describe('setup', function () {
     let currentConfig;
@@ -35,7 +33,7 @@ describe('setup', function () {
             cwd: options.bundle,
             script: 'main.js',
             env: Object.assign({}, config.env, {
-                BIND_IP: vpnIp,
+                BIND_IP: __IP,
                 METEOR_SETTINGS: JSON.stringify(settings),
             }),
         });
@@ -45,5 +43,6 @@ describe('setup', function () {
         const actualConfig = JSON.parse(readFileSync(options.config).toString());
 
         expect(actualConfig).toEqual(expectedConfig);
+        expect(getIp).toHaveBeenCalledWith(options);
     });
 });

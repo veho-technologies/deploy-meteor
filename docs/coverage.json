@@ -1,0 +1,35 @@
+{
+  "coverage": "0%",
+  "expectCount": 4,
+  "actualCount": 0,
+  "files": {
+    "src/lib/ip.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        18
+      ]
+    },
+    "src/lib/settings.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "src/options.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        38
+      ]
+    },
+    "src/lib/pm2.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    }
+  }
+}

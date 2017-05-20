@@ -1,6 +1,6 @@
 {
   "source": "./src",
-  "destination": "./dist/doc",
+  "destination": "./docs",
   "excludes": ["__tests__", "__mocks__", "store\\.js", "test"],
   "includeSource": false,
   "coverage": true

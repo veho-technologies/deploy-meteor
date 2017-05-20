@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-options">options</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">lib</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getIp">getIp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-writePm2Config">writePm2Config</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSettings">getSettings</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="deploy-meteor">deploy-meteor</h1>
+<p>This is a simple command line Node app that helps you deploy/update a Meteor application.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need to install <a href="https://www.npmjs.com/package/pm2">pm2</a> globally and have the server tarball,
+that <code>meteor build</code> creates, extracted already.</p>
+<p>Also, we assume that you have your Meteor settings stored inside your Meteor app&apos;s assets.
+ (You might want to check out <a href="https://github.com/AGWA/git-crypt">git-crypt</a> if you have sensitive
+ information in your settings file.)</p>
+<h2 id="usage">Usage</h2>
+<p>Assuming you have the following setup:</p>
+<ul>
+<li>extracted server tarball in <code>/home/my-fancy-app/bundle</code></li>
+<li><p>an existing/prefilled pm2 config file in <code>/home/my-fancy-app/pm2-config.json</code> with a content looking like this:</p>
+<pre><code class="lang-json"><code class="source-code prettyprint">  {
+      &quot;name&quot;: &quot;my-fancy-app&quot;,
+      &quot;env&quot;: {
+          &quot;PORT&quot;: 3000,
+          &quot;HTTP_FORWARDED_COUNT&quot;: 1,
+          &quot;MONGO_URL&quot;: &quot;mongodb://localhost:27017/my_fancy_app?replicaSet=rs0&quot;,
+          &quot;MONGO_OPLOG_URL&quot;: &quot;mongodb://localhost:27017/local?replicaSet=rs0&amp;authSource=my_fancy_app&quot;,
+          &quot;ROOT_URL&quot;: &quot;https://my-fancy-app.com&quot;,
+          &quot;MAIL_URL&quot;: &quot;smtp://bot%40my-fancy-app.com:s3cr3t@smtp.mailgun.org:587&quot;
+      }
+  }</code>
+</code></pre>
+</li>
+<li><p>your settings file is located inside your Meteor project at <code>private/settings.json</code></p>
+<pre><code class="lang-json"><code class="source-code prettyprint">  {
+    &quot;AWSAccessKeyId&quot;: &quot;test&quot;,
+    &quot;AWSSecretAccessKey&quot;: &quot;test&quot;,
+    &quot;AWSBucket&quot;: &quot;test&quot;,
+    &quot;AWSRegion&quot;: &quot;test&quot;
+  }</code>
+</code></pre>
+</li>
+<li><p><code>deploy-meteor</code> is installed in <code>~/deploy-meteor</code></p>
+</li>
+</ul>
+<p>If you then run </p>
+<pre><code class="lang-shell"><code class="source-code prettyprint">cd ~/deploy-meteor
+node . --config=/home/my-fancy-app/pm2-config.json --settings=settings.json /home/my-fancy-app/bundle</code>
+</code></pre>
+<p>your config file <code>/home/my-fancy-app/pm2-config.json</code> will be updated like this:</p>
+<pre><code class="lang-json"><code class="source-code prettyprint">{
+    &quot;name&quot;: &quot;my-fancy-app&quot;,
+    &quot;cwd&quot;: &quot;/home/my-fancy-app/bundle&quot;,
+    &quot;script&quot;: &quot;main.js&quot;,
+    &quot;env&quot;: {
+        &quot;PORT&quot;: 3000,
+        &quot;HTTP_FORWARDED_COUNT&quot;: 1,
+        &quot;MONGO_URL&quot;: &quot;mongodb://localhost:27017/my_fancy_app?replicaSet=rs0&quot;,
+        &quot;MONGO_OPLOG_URL&quot;: &quot;mongodb://localhost:27017/local?replicaSet=rs0&amp;authSource=my_fancy_app&quot;,
+        &quot;ROOT_URL&quot;: &quot;https://my-fancy-app.com&quot;,
+        &quot;MAIL_URL&quot;: &quot;smtp://bot%40my-fancy-app.com:s3cr3t@smtp.mailgun.org:587&quot;,
+        &quot;METEOR_SETTINGS&quot;: &quot;{\&quot;AWSAccessKeyId\&quot;:\&quot;test\&quot;,\&quot;AWSSecretAccessKey\&quot;:\&quot;test\&quot;,\&quot;AWSBucket\&quot;:\&quot;test\&quot;,\&quot;AWSRegion\&quot;:\&quot;test\&quot;}&quot;
+    }
+}</code>
+</code></pre>
+<h2 id="options">Options</h2>
+<ul>
+<li>`--</li>
+</ul>
+<h2 id="license">License</h2>
+<p>MIT</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

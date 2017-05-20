@@ -30,6 +30,16 @@ var optionList = [{
     alias: 's',
     type: String,
     description: 'path to the settings file, relative to the `private` ' + 'folder (like you would use it with `Assets.getText()`)'
+}, {
+    name: 'bindInterface',
+    alias: 'i',
+    type: String,
+    description: 'network interface you want to bind to (defaults to tun0)'
+}, {
+    name: 'bindIp',
+    alias: 'b',
+    type: String,
+    description: 'IP you want to listen to (overrides --bindInterface)'
 }];
 
 var options = exports.options = (0, _commandLineArgs2.default)(optionList);
@@ -37,7 +47,7 @@ var options = exports.options = (0, _commandLineArgs2.default)(optionList);
 if (!options.bundle || !options.config || !options.settings) {
     var sections = [{
         header: 'Usage',
-        content: 'node . [bold]{--config=}path/to/pm2-config.json ' + '[bold]{--settings=}private/settings.json ' + '[italic]{[--bundle=]}path/to/bundle'
+        content: 'node . [bold]{--config=}path/to/pm2-config.json ' + '[bold]{--settings=}settings.json ' + '[italic]{[--bindInterface=tun0]} [italic]{[--bindIp=10.0.0.1]}' + '[italic]{[--bundle=]}path/to/bundle '
     }, {
         header: 'Options',
         optionList
