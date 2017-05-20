@@ -20,7 +20,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function getIpFromInterface(interfaceName) {
     var command = `ip addr show ${interfaceName} ` + '| grep "inet\\b" ' + '| awk \'{print $2}\' ' + '| cut -d/ -f1';
 
-    return _shelljs2.default.exec(command).stdout;
+    return _shelljs2.default.exec(command, { silent: true }).stdout.trim();
 }
 
 function getIp(_ref) {

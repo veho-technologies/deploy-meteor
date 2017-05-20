@@ -20,3 +20,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var settings = (0, _settings2.default)(_options.options.bundle, _options.options.settings);
 
 (0, _pm2.default)(_options.options.config, _options.options.bundle, settings, (0, _ip2.default)(_options.options));
+
+console.info(`config file ${_options.options.config} updated.`);
