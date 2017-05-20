@@ -43,13 +43,11 @@ Assuming you have the following setup:
 	}
 	```
 
-- `deploy-meteor` is installed in `~/deploy-meteor`
-
 If you then run 
 
 ```shell
-cd ~/deploy-meteor
-node . --config=/home/my-fancy-app/pm2-config.json --settings=settings.json /home/my-fancy-app/bundle
+npm i -g @veho-tech/deploy-meteor
+deploy-meteor --config=/home/my-fancy-app/pm2-config.json --settings=settings.json /home/my-fancy-app/bundle
 ```
 
 your config file `/home/my-fancy-app/pm2-config.json` will be updated like this:
