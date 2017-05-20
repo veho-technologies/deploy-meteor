@@ -8,3 +8,5 @@ import { options } from './options';
 const settings = getSettings(options.bundle, options.settings);
 
 writeConfig(options.config, options.bundle, settings, getIp(options));
+
+console.info(`config file ${options.config} updated.`);

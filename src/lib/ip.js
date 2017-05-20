@@ -12,7 +12,7 @@ function getIpFromInterface(interfaceName) {
         '| awk \'{print $2}\' ' +
         '| cut -d/ -f1';
 
-    return shell.exec(command).stdout;
+    return shell.exec(command, { silent: true }).stdout.trim();
 }
 
 export default function getIp({ bindIp, bindInterface }) {
