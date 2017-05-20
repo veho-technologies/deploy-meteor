@@ -51,6 +51,7 @@
     "webpack": "^2.5.1"
   },
   "dependencies": {
+    "command-line-args": "^4.0.4",
     "command-line-usage": "^4.0.0",
     "shelljs": "^0.7.7"
   },
